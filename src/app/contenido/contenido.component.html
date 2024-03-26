@@ -1,12 +1,19 @@
-<div class="lanzamiento">
-    <p>Lanzamiento verano'24 - Enterate de las novedades de nuestra Plataforma | <a href=""> Ver video ➡️ 
-    </a></p>
+<h1>ESTADO DE ALUMNOS</h1>
+
+
+<button (click)="mostrarLista = !mostrarLista" >Mostrar Lista</button>
+
+  <ul *ngIf="mostrarLista" >
+   
+    <li *ngFor="let alumno of alumnos" >
+      {{alumno.nombre |  uppercase }}: Su promedio es de  {{alumno.nota}}, su estado es 
+       <p [ngClass]="alumno.estado ? 'aprobado' : 'desaprobado'" 
+       
+       [ngStyle]="{
+        'font-weight': alumno.estado ? 700 :400
+       }">
+        {{alumno.estado  ? 'APROBADO' : 'DESAPROBADO' }}
+      </p>
         
-</div>
-<div class="descripcion">
-    <p>Cursos Online en vivo para </p>
-    <p class="resaltar">transformar tu realidad</p><p>en tiempo record</p>
-
-</div>
-
-<p>contenido works!</p>
+    </li>
+    </ul> 
